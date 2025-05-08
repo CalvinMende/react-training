@@ -1,14 +1,16 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "./App.css";
 import { GesamtAnsichtComponent } from "./GesamtAnsichtComponent";
+import { ThemeContextProvider } from "./ThemeContext";
 
 const queryClient = new QueryClient();
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <div className='App'>
-      {/*books.map((book, index) => (
+    <ThemeContextProvider>
+      <QueryClientProvider client={queryClient}>
+        <div className='App bg-white dark:bg-black'>
+          {/*books.map((book, index) => (
         // always define keys when looping, unique identifier for React DOM
         <BookComponent
           key={index}
@@ -19,9 +21,10 @@ function App() {
           title={book.title}
         />
       ))*/}
-      <GesamtAnsichtComponent />
-    </div>
-    </QueryClientProvider>
+          <GesamtAnsichtComponent />
+        </div>
+      </QueryClientProvider>
+    </ThemeContextProvider>
   );
 }
 

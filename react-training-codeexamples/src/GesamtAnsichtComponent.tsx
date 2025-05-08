@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { BookComponent2 } from "./Book2";
 import { ButtonComponent } from "./ButtonComponent";
+import { ThemeToggleButton } from "./ThemeContext";
 
 export const GesamtAnsichtComponent = () => {
   const [bookAnzeige, setBookAnzeige] = useState<number>(0);
@@ -59,7 +60,8 @@ export const GesamtAnsichtComponent = () => {
   return (
     <>
       <div>
-        <h1 className='text-3xl'>Booklist ({bookAnzeige})</h1>
+        <h1 className='text-3xl dark:text-white'>Booklist ({bookAnzeige})</h1>
+        <ThemeToggleButton></ThemeToggleButton>
         <ButtonComponent fetchedBooks={data} bookAnzeige={bookAnzeige} setBookAnzeige={setBookAnzeige}></ButtonComponent>
         <BookComponent2 amountOfBooks={bookAnzeige} fetchedBooks={data}></BookComponent2>
       </div>
